@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GreenElectric.Entities.Servicios.DigitoVerificador
 {
-   public class DigitoVerificadorH
+   public class DigitoVerificadorH : Entity
     {
         public DigitoVerificadorH()
 

@@ -70,6 +70,13 @@
     <Compile Include="DataAccessComponent.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicios\Backup\BackupDAC.cs" />
+    <Compile Include="Servicios\Bitacora\BitacoraDAC.cs" />
+    <Compile Include="Servicios\Bitacora\EventoBitacoraDAC.cs" />
+    <Compile Include="Servicios\DigitoVerificador\DigitoVerificadorVDac.cs" />
+    <Compile Include="Servicios\Login\UsuarioDAC.cs" />
+    <Compile Include="Servicios\Permisos\FamiliaDac.cs" />
+    <Compile Include="Servicios\Permisos\PatenteDAC.cs" />
     <Compile Include="TipoDomicilioDAC.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -81,5 +88,6 @@
       <Name>GreenElectric.Entities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

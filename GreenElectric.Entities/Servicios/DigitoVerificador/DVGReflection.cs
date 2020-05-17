@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GreenElectric.Entities.Servicios.DigitoVerificador
 {
- public   class DVGReflection
+ public   class DVGReflection : Entity
     {
         public static string GetDVH(object entity)
 

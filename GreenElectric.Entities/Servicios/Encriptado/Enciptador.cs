@@ -4,12 +4,14 @@ using System.Text;
 
 namespace GreenElectric.Entities.Servicios.Encriptado
 {
-  public abstract class Enciptador
+
+  public abstract class Enciptador : Entity
     {
-        public  string valorInicial;
+        public string valorInicial;
 
         public string valorEncriptado;
-        
+
         public abstract string Hashear();
     }
 }
+

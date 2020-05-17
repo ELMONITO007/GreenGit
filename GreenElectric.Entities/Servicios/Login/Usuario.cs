@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GreenElectric.Entities.Servicios.Login
 {
-public   class Usuario
+public   class Usuario : Entity
     {
 
         public string nombreUsuario { get; set; }
@@ -17,6 +17,11 @@ public   class Usuario
             contraseña = _contraseña;
             digitoVerificadorH = _digitoVerificadorH;
             hablitado = _hablitado;
+        }
+        public Usuario()
+        {
+
+
         }
     }
 }

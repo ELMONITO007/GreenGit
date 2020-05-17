@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GreenElectric.Entities.Servicios.Bitacora
 {
-   public class EventoBitacora
+   public class EventoBitacora : Entity
     {
         public EventoBitacora(string _evento)
         {

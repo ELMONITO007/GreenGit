@@ -5,7 +5,8 @@ using System.Text;
 
 namespace GreenElectric.Entities.Servicios.Encriptado
 {
- public   class EncriptarSHA256 : Enciptador
+
+ public   class EncriptarSHA256 : Enciptador 
     {
         public EncriptarSHA256(string _valorInicial)
         {

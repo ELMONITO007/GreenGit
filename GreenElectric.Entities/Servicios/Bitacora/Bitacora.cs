@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GreenElectric.Entities.Servicios.Bitacora
 {
-   public class Bitacora
+   public class Bitacora : Entity
     {
         public Bitacora(DateTime _fecha, EventoBitacora _evento, Usuario _usuario, string _descripcion, string DVH)
         {
@@ -14,6 +14,10 @@ namespace GreenElectric.Entities.Servicios.Bitacora
             usuario = _usuario;
             descripcion = _descripcion;
             digitoVerificadorHorizontal = DVH;
+        }
+        public Bitacora()
+        {
+
         }
       public  DateTime fecha
         {
