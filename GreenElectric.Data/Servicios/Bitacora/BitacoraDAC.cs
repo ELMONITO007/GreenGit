@@ -11,11 +11,11 @@ using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace GreenElectric.Data.Servicios.Bitacora
 {
-    public class BitacoraDAC : DataAccessComponent, IRepository<Entities.Servicios.Bitacora.Bitacora>
+    public class BitacoraDAC : DataAccessComponent, IRepository<EE.Servicios.Bitacora.Bitacora>
     {
-        public Entities.Servicios.Bitacora.Bitacora LoadCategoria(IDataReader dr)
+        public EE.Servicios.Bitacora.Bitacora LoadCategoria(IDataReader dr)
         {
-            Entities.Servicios.Bitacora.Bitacora bitacora = new Entities.Servicios.Bitacora.Bitacora();
+            EE.Servicios.Bitacora.Bitacora bitacora = new EE.Servicios.Bitacora.Bitacora();
             bitacora.Id = GetDataValue<int>(dr, "ID_Bitacora");
             bitacora.descripcion = GetDataValue<string>(dr, "descripcion");
             bitacora.evento.Id = GetDataValue<int>(dr, "ID_Evento");
@@ -31,7 +31,7 @@ namespace GreenElectric.Data.Servicios.Bitacora
 
 
 
-        public Entities.Servicios.Bitacora.Bitacora Create(Entities.Servicios.Bitacora.Bitacora entity)
+        public EE.Servicios.Bitacora.Bitacora Create(EE.Servicios.Bitacora.Bitacora entity)
         {
             const string SQL_STATEMENT = " insert into Bitacora(ID_Evento, ID_Usuario, Fecha, Descripcion, DigitoVerificadorH,activo)values(@ID_Evento, @ID_Usuario, @Fecha, @Descripcion, @DigitoVerificadorH,1)";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
@@ -64,12 +64,12 @@ namespace GreenElectric.Data.Servicios.Bitacora
 
        
 
-        public List<Entities.Servicios.Bitacora.Bitacora> Read()
+        public List<EE.Servicios.Bitacora.Bitacora> Read()
         {
             const string SQL_STATEMENT = "select b.ID_Bitacora, b.Descripcion,b.Fecha,b.DigitoVerificadorH,u.ID_Usuario,u.NombreUsuario,eb.ID_Evento,eb.Evento from Bitacora as b inner join Usuario as u on b.ID_Usuario=u.ID_Usuario inner join EventoBitacora as eb on eb.ID_Evento=b.ID_Evento where b.activo=1";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
 
-            List<Entities.Servicios.Bitacora.Bitacora> result = new List<Entities.Servicios.Bitacora.Bitacora>();
+            List<EE.Servicios.Bitacora.Bitacora> result = new List<EE.Servicios.Bitacora.Bitacora>();
 
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
@@ -77,7 +77,7 @@ namespace GreenElectric.Data.Servicios.Bitacora
                 {
                     while (dr.Read())
                     {
-                        Entities.Servicios.Bitacora.Bitacora bitacora = LoadCategoria(dr);
+                        EE.Servicios.Bitacora.Bitacora bitacora = LoadCategoria(dr);
                         result.Add(bitacora);
                     }
                 }
@@ -85,10 +85,10 @@ namespace GreenElectric.Data.Servicios.Bitacora
             return result;
         }
 
-        public Entities.Servicios.Bitacora.Bitacora ReadBy(int id)
+        public EE.Servicios.Bitacora.Bitacora ReadBy(int id)
         {
             const string SQL_STATEMENT = "select b.ID_Bitacora, b.Descripcion,b.Fecha,b.DigitoVerificadorH,u.ID_Usuario,u.NombreUsuario,eb.ID_Evento,eb.Evento from Bitacora as b inner join Usuario as u on b.ID_Usuario=u.ID_Usuario inner join EventoBitacora as eb on eb.ID_Evento=b.ID_Evento where b.activo=1 and ID_Bitacora=@Id";
-            Entities.Servicios.Bitacora.Bitacora objeto = new Entities.Servicios.Bitacora.Bitacora();
+            EE.Servicios.Bitacora.Bitacora objeto = new EE.Servicios.Bitacora.Bitacora();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
@@ -105,7 +105,7 @@ namespace GreenElectric.Data.Servicios.Bitacora
             return objeto;
         }
 
-        public void Update(Entities.Servicios.Bitacora.Bitacora entity)
+        public void Update(EE.Servicios.Bitacora.Bitacora entity)
         {
             throw new NotImplementedException();
         }

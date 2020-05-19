@@ -1,4 +1,4 @@
-﻿using GreenElectric.Entities.Servicios.DigitoVerificador;
+﻿using GreenElectric.EE.Servicios.DigitoVerificador;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System;
 using System.Collections.Generic;

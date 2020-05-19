@@ -1,4 +1,4 @@
-﻿using GreenElectric.Entities;
+﻿using GreenElectric.EE;
 using System;
 using System.Collections.Generic;
 using System.Text;

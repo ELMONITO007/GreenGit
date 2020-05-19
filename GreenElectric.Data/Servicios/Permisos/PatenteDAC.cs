@@ -1,4 +1,4 @@
-﻿using GreenElectric.Entities.Servicios.Permisos;
+﻿using GreenElectric.EE.Servicios.Permisos;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System;
 using System.Collections.Generic;

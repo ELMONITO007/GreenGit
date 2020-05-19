@@ -1,4 +1,4 @@
-﻿using GreenElectric.Entities.Servicios.Bitacora;
+﻿using GreenElectric.EE.Servicios.Bitacora;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GreenElectric.Data.Servicios.Bitacora
 {
-    public class EventoBitacoraDAC : DataAccessComponent, IRepository<Entities.Servicios.Bitacora.EventoBitacora>
+    public class EventoBitacoraDAC : DataAccessComponent, IRepository<EE.Servicios.Bitacora.EventoBitacora>
     {
         public EventoBitacora LoadCategoria(IDataReader dr)
         {

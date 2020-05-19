@@ -38,6 +38,7 @@
       <HintPath>..\packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Configuration.ConfigurationManager.4.7.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
@@ -77,17 +78,15 @@
     <Compile Include="Servicios\Login\UsuarioDAC.cs" />
     <Compile Include="Servicios\Permisos\FamiliaDac.cs" />
     <Compile Include="Servicios\Permisos\PatenteDAC.cs" />
-    <Compile Include="TipoDomicilioDAC.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GreenElectric.Entities\GreenElectric.Entities.csproj">
-      <Project>{6fbf3610-1fed-4f0d-80ca-dd4a13d8f2cd}</Project>
-      <Name>GreenElectric.Entities</Name>
+    <ProjectReference Include="..\GreenElectric.EE\GreenElectric.EE.csproj">
+      <Project>{648c523f-0fbe-4f80-a890-849edf79aa09}</Project>
+      <Name>GreenElectric.EE</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

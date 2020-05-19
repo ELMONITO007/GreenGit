@@ -3,34 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using GreenElectric.Negocio;
-using GreenElectric.Entities;
+using GreenElectric.Negocio.Backup;
+using GreenElectric.EE.Servicios.Backup;
 
 namespace GreenElectric.IU.Controllers
 {
-    public class TipoDomicilioController : Controller
+    public class BackupController : Controller
     {
-        // GET: TipoDomicilio
+        // GET: Backup
         public ActionResult Index()
         {
-            TipoDomicilioBE tipoDomicilioBE = new TipoDomicilioBE();
-
-            return View(tipoDomicilioBE.Read());
+            BackupsBE backupsBE = new BackupsBE();
+            return View(backupsBE.Read());
         }
 
-        // GET: TipoDomicilio/Details/5
+        // GET: Backup/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+
+            BackupsBE backupsBE = new BackupsBE();
+            return View(backupsBE.ReadBy(id));
         }
 
-        // GET: TipoDomicilio/Create
+        // GET: Backup/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: TipoDomicilio/Create
+        // POST: Backup/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -46,13 +47,13 @@ namespace GreenElectric.IU.Controllers
             }
         }
 
-        // GET: TipoDomicilio/Edit/5
+        // GET: Backup/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: TipoDomicilio/Edit/5
+        // POST: Backup/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -68,13 +69,13 @@ namespace GreenElectric.IU.Controllers
             }
         }
 
-        // GET: TipoDomicilio/Delete/5
+        // GET: Backup/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: TipoDomicilio/Delete/5
+        // POST: Backup/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

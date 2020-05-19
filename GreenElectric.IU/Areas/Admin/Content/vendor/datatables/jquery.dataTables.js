@@ -14904,7 +14904,7 @@
 	 * to make working with DataTables a little bit easier.
 	 */
 	
-	var __htmlEscapeEntities = function ( d ) {
+	var __htmlEscapeEE = function ( d ) {
 		return typeof d === 'string' ?
 			d.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') :
 			d;
@@ -14951,7 +14951,7 @@
 					// return immediately, escaping any HTML (this was supposed to
 					// be a number after all)
 					if ( isNaN( flo ) ) {
-						return __htmlEscapeEntities( d );
+						return __htmlEscapeEE( d );
 					}
 	
 					flo = flo.toFixed( precision );
@@ -14974,8 +14974,8 @@
 	
 		text: function () {
 			return {
-				display: __htmlEscapeEntities,
-				filter: __htmlEscapeEntities
+				display: __htmlEscapeEE,
+				filter: __htmlEscapeEE
 			};
 		}
 	};

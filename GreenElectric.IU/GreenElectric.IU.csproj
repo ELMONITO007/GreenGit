@@ -122,8 +122,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BackupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TipoDomicilioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1942,7 +1942,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\TipoDomicilio\Index.cshtml" />
+    <Content Include="Views\Backup\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1963,9 +1963,9 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GreenElectric.Entities\GreenElectric.Entities.csproj">
-      <Project>{6fbf3610-1fed-4f0d-80ca-dd4a13d8f2cd}</Project>
-      <Name>GreenElectric.Entities</Name>
+    <ProjectReference Include="..\GreenElectric.EE\GreenElectric.EE.csproj">
+      <Project>{648c523f-0fbe-4f80-a890-849edf79aa09}</Project>
+      <Name>GreenElectric.EE</Name>
     </ProjectReference>
     <ProjectReference Include="..\GreenElectric.Negocio\GreenElectric.Negocio.csproj">
       <Project>{05c43934-55ba-43e5-a8d1-f2b1fbf2574b}</Project>

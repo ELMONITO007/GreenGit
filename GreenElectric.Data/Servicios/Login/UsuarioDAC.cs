@@ -1,4 +1,4 @@
-﻿using GreenElectric.Entities.Servicios.Login;
+﻿using GreenElectric.EE.Servicios.Login;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System;
 using System.Collections.Generic;
