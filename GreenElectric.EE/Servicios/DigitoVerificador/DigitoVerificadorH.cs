@@ -15,7 +15,7 @@ namespace GreenElectric.EE.Servicios.DigitoVerificador
 
 
 
-        public static string getDigitoEncriptado(object unObjeto)
+        public  string getDigitoEncriptado(object unObjeto)
         {
             string digitoAEncriptar = DVGReflection.GetDVH(unObjeto);
            EncriptarSHA5 e = new Encriptado.EncriptarSHA5(digitoAEncriptar);

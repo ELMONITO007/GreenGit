@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace GreenElectric.EE.Servicios.Bitacora
@@ -14,6 +16,10 @@ namespace GreenElectric.EE.Servicios.Bitacora
         {
            
         }
+
+        [Required]
+        [DisplayName("Nombre del Evento")]
+        [DataType(DataType.Text,ErrorMessage ="Debe ser solo texto")]
         public string eventoBitacora
         {
             get;

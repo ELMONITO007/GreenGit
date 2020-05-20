@@ -33,35 +33,53 @@ namespace GreenElectric.IU.Controllers
 
         // POST: Backup/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(FormCollection form)
         {
             try
             {
+                BackupsBE backupsBE = new BackupsBE();
+                Backup backup = new Backup();
+                backup.fecha = DateTime.Now;
+                backup.Path = @"C:\Backup\Backup_" + DateTime.Now ;
+                backupsBE.Create(backup);
                 // TODO: Add insert logic here
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception e)
             {
                 return View();
             }
         }
 
         // GET: Backup/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Restaurar(int id)
         {
-            return View();
+            BackupsBE backupsBE = new BackupsBE();
+            return View(backupsBE.ReadBy(id));
+
+          
         }
 
         // POST: Backup/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Restaurar(int id, FormCollection collection)
         {
             try
-            {
+            {   BackupsBE backupsBE = new BackupsBE();
+
+                if (backupsBE.RestaurarBackup(id))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("Error");
+                }
+
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+               
             }
             catch
             {
@@ -69,10 +87,18 @@ namespace GreenElectric.IU.Controllers
             }
         }
 
+        public ActionResult Error()
+        {
+
+            return View();
+        }
+
         // GET: Backup/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+
+            BackupsBE backupsBE = new BackupsBE();
+            return View(backupsBE.ReadBy(id));
         }
 
         // POST: Backup/Delete/5
@@ -83,6 +109,8 @@ namespace GreenElectric.IU.Controllers
             {
                 // TODO: Add delete logic here
 
+                BackupsBE backupsBE = new BackupsBE();
+                backupsBE.Delete(id);
                 return RedirectToAction("Index");
             }
             catch
