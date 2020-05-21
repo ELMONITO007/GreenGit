@@ -1,0 +1,25 @@
+﻿@model GreenElectric.EE.Servicios.Bitacora.EventoBitacora
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/modern-business.css" rel="stylesheet" />
+
+<div>
+    <h3>¿Esta seguro de eliminar el Tipo de Tvento de la Bitacora @Html.DisplayFor(model => model.eventoBitacora)?</h3>
+    <hr />
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="BotonAzul" />
+            <input type="button" class="BotonAzul " style="float:right" value="Volver" onclick="location.href='@Url.Action("Index", "EventoBitacora")'" />
+        </div>
+    }
+</div>
+</div>

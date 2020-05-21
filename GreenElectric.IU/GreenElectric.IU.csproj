@@ -1949,12 +1949,16 @@
     <Content Include="Views\Backup\Error.cshtml" />
     <Content Include="Views\Backup\Restaurar.cshtml" />
     <Content Include="Views\Backup\Delete.cshtml" />
+    <Content Include="Views\EventoBitacora\Index.cshtml" />
+    <Content Include="Views\EventoBitacora\Details.cshtml" />
+    <Content Include="Views\EventoBitacora\Create.cshtml" />
+    <Content Include="Views\EventoBitacora\Edit.cshtml" />
+    <Content Include="Views\EventoBitacora\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\EventoBitacora\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

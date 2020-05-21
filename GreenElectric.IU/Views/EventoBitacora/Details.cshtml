@@ -1,0 +1,29 @@
+﻿@model GreenElectric.EE.Servicios.Bitacora.EventoBitacora
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/modern-business.css" rel="stylesheet" />
+<div class="table-responsive col-md-12">
+    <h4>Detalles del evento @Html.DisplayFor(model => model.eventoBitacora)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.eventoBitacora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventoBitacora)
+        </dd>
+
+    </dl>
+    <div>
+        <h5> @Html.ActionLink("Editar", "Edit", new { id = Model.Id })</h5>
+    </div>
+    <div>
+
+        <input type="button" class="BotonAzul " style="float:left" value="Volver" onclick="location.href='@Url.Action("Index", "EventoBitacora")'" />
+    </div>
+</div>
+

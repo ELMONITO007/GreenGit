@@ -17,7 +17,7 @@ namespace GreenElectric.Data.Servicios.Bitacora
             EventoBitacora eventoBitacora = new EventoBitacora();
             eventoBitacora.eventoBitacora = GetDataValue<string>(dr, "Evento");
             eventoBitacora.Id = GetDataValue<int>(dr, "ID_Evento");
-            throw new NotImplementedException();
+            return eventoBitacora;
         }
         public EventoBitacora Create(EventoBitacora entity)
         {
@@ -25,7 +25,7 @@ namespace GreenElectric.Data.Servicios.Bitacora
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
-                db.AddInParameter(cmd, "@Evento", DbType.DateTime, entity.eventoBitacora);
+                db.AddInParameter(cmd, "@Evento", DbType.String, entity.eventoBitacora);
                 
                 entity.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
             }
@@ -92,14 +92,23 @@ namespace GreenElectric.Data.Servicios.Bitacora
 
         public void Update(EventoBitacora entity)
         {
-            const string SQL_STATEMENT = "update EventoBitacora set Evento=@Evento where Id_Evento=@Id";
-            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
-            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            try
             {
-                db.AddInParameter(cmd, "@Evento", DbType.DateTime, entity.eventoBitacora);
-                db.AddInParameter(cmd, "@Id", DbType.Int32, entity.Id);
-                db.ExecuteNonQuery(cmd);
+                const string SQL_STATEMENT = "update EventoBitacora set Evento=@Evento where Id_Evento=@Id";
+                var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+                using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+                {
+                    db.AddInParameter(cmd, "@Evento", DbType.String, entity.eventoBitacora);
+                    db.AddInParameter(cmd, "@Id", DbType.Int32, entity.Id);
+                    db.ExecuteNonQuery(cmd);
+                }
             }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+            
         }
     }
 }

@@ -68,9 +68,10 @@ namespace GreenElectric.IU.Controllers
                 EventoBitacora eventoBitacora = new EventoBitacora();
                 eventoBitacora.Id = id;
                 eventoBitacora.eventoBitacora = collection.Get("eventoBitacora");
+                eventoBitacoraBE.Update(eventoBitacora);
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception e)
             {
                 return View();
             }

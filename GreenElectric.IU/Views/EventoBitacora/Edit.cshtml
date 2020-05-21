@@ -1,0 +1,41 @@
+﻿@model GreenElectric.EE.Servicios.Bitacora.EventoBitacora
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<link href="~/Content/modern-business.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Editar el tipo de Evento de la Bitacora @Html.DisplayFor(model => model.eventoBitacora)</h4>
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+          
+            <div class="col-md-10">
+                <h5 class="text-justify">Tipo de Evento</h5>
+                @Html.EditorFor(model => model.eventoBitacora, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.eventoBitacora, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+                <input type="button" class="BotonAzul " style="float:right" value="Volver" onclick="location.href='@Url.Action("Index", "EventoBitacora")'" />
+                <input type="submit" value="Actualizar" class="BotonAzul" />
+            </div>
+        </div>
+    </div>
+}
+

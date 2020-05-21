@@ -18,7 +18,7 @@ namespace GreenElectric.EE.Servicios.Bitacora
         }
 
         [Required]
-        [DisplayName("Nombre del Evento")]
+        [DisplayName("Nombre del Tipo de Evento de la Bitacora")]
         [DataType(DataType.Text,ErrorMessage ="Debe ser solo texto")]
         public string eventoBitacora
         {
