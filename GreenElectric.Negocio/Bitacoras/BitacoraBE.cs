@@ -44,5 +44,10 @@ namespace GreenElectric.Negocio.Bitacoras
 
             bitacoraDAC.Update(entity);
         }
+
+        //public List<Bitacora> FiltrarPorusuario (List<Bitacora> lista,int usuario)
+        //{
+
+        //}
     }
 }

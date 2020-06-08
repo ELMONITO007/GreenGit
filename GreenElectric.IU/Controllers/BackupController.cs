@@ -51,7 +51,14 @@ namespace GreenElectric.IU.Controllers
                 return View();
             }
         }
+        // GET: Backup/Edit/5
+        public ActionResult Error(int id)
+        {
+            BackupsBE backupsBE = new BackupsBE();
+            return View(backupsBE.ReadBy(id));
 
+
+        }
         // GET: Backup/Edit/5
         public ActionResult Restaurar(int id)
         {
@@ -87,11 +94,7 @@ namespace GreenElectric.IU.Controllers
             }
         }
 
-        public ActionResult Error()
-        {
-
-            return View();
-        }
+       
 
         // GET: Backup/Delete/5
         public ActionResult Delete(int id)

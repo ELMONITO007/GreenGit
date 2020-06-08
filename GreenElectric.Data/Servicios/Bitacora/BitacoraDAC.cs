@@ -17,7 +17,7 @@ namespace GreenElectric.Data.Servicios.Bitacora
         {
             EE.Servicios.Bitacora.Bitacora bitacora = new EE.Servicios.Bitacora.Bitacora();
             bitacora.Id = GetDataValue<int>(dr, "ID_Bitacora");
-            bitacora.descripcion = GetDataValue<string>(dr, "descripcion");
+            bitacora.descripcion = GetDataValue<string>(dr, "Descripcion");
             bitacora.evento.Id = GetDataValue<int>(dr, "ID_Evento");
             bitacora.evento.eventoBitacora = GetDataValue<string>(dr, "Evento");
             bitacora.digitoVerificadorHorizontal = GetDataValue<string>(dr, "DigitoVerificadorH");

@@ -200,9 +200,20 @@ body {
     line-height: 1.5;
     color: #495057;
     text-align: left;
-    background-color:aliceblue;
+    /* Aquí el origen de la imagen */
+  
+    background-image: url('../Imagen/Aura-Solar-1-1.jpg');
+    /* Fijar la imagen de fondo este vertical y
+    horizontalmente y centrado */
+    background-position: center center;
+    /* Esta imagen no debe de repetirse */
     background-repeat: no-repeat;
-    background-size: contain;
+    /* COn esta regla fijamos la imagen en la pantalla. */
+    background-attachment: fixed;
+    /* La imagen ocupa el 100% y se reescala */
+    background-size: cover;
+    /* Damos un color de fondo mientras la imagen está cargando  */
+    background-color: #464646;
 }
 .BotonAzul {
     box-shadow: inset 0px 1px 0px 0px #a4e271;
@@ -2225,11 +2236,24 @@ pre {
     color: #495057;
 }
 
-    .table th,
+    .table th {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+        color: White;
+        font-family: Arial;
+        font-weight: bold;
+        background-color:goldenrod;
+        font-size:24px;
+    }
     .table td {
         padding: 0.75rem;
         vertical-align: top;
         border-top: 1px solid #dee2e6;
+        color: White;
+        font-family: Arial;
+        font-weight: bold;
+        font-size: 21px;
     }
 
     .table thead th {

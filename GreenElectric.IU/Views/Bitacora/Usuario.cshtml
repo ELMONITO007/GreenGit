@@ -1,0 +1,85 @@
+﻿@model IEnumerable<GreenElectric.EE.Servicios.Bitacora.Bitacora>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/modern-business.css" rel="stylesheet" />
+<div class="table-responsive">
+    <div class="form-horizontal">
+        <br />
+        @foreach (var item in Model)
+        {
+    <div style="max-width:250px">
+        <h4 style="color:white">Seleccionar el usuario</h4>
+        @Html.DropDownListFor(Item => item.Id, (IEnumerable<SelectListItem>)ViewBag.usuariosLista, new { @class = "form-control" })
+        <br />
+    </div>
+   
+            @Html.ValidationMessageFor(model => item.Id, "", new { @class = "text-danger" })
+            <input type="submit" value="Buscar" class="BotonAzul" />
+
+            break;
+
+        }
+
+
+    </div>
+
+    <br />
+    <table class="table table-bordered table-hover ">
+
+        <tr >
+
+            <th style="color:white">
+                @Html.DisplayNameFor(model => model.usuario.nombreUsuario)
+            </th>
+            <th style="color:white">
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th style="color:white">
+                @Html.DisplayNameFor(model => model.fecha)
+
+            </th>
+            <th style="color:white">
+                @Html.DisplayNameFor(model => model.evento.eventoBitacora)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.usuario.nombreUsuario)
+                </td>
+                <td style="color:white">
+                    @Html.DisplayFor(modelItem => item.descripcion)
+                </td>
+                <td style="color:white">
+                    @Html.DisplayFor(modelItem => item.fecha)
+                </td>
+                <td style="color:white">
+                    @Html.DisplayFor(modelItem => item.evento.eventoBitacora)
+                </td>
+                <td style="color:black">
+                    <b>
+
+
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    </b>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div>
+
+        <input type="button" class="BotonAzul " style="float:left" value="Buscar por evento" onclick="location.href='@Url.Action("Usuario", "Bitacora")'" />
+
+        <input type="button" class="BotonAzul " style="float:right" value="Volver" onclick="location.href='@Url.Action("Index", "Bitacora")'" />
+
+
+    </div>
+</div>
