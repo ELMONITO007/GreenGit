@@ -1959,6 +1959,7 @@
     <Content Include="Views\EventoBitacora\Delete.cshtml" />
     <Content Include="Views\Bitacora\Index.cshtml" />
     <Content Include="Views\Bitacora\Usuario.cshtml" />
+    <Content Include="Views\Bitacora\Evento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

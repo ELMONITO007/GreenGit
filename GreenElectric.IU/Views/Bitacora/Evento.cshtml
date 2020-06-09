@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<GreenElectric.EE.Servicios.Bitacora.Bitacora>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Evento";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,12 +11,12 @@
         <br />
         @foreach (var item in Model)
         {
-    <div style="max-width:250px">
-        <h4 style="color:white">Seleccionar el usuario</h4>
-        @Html.DropDownListFor(Item => item.Id, (IEnumerable<SelectListItem>)ViewBag.usuariosLista, new { @class = "form-control" })
-        <br />
-    </div>
-   
+            <div style="max-width:250px">
+                <h4 style="color:white">Seleccionar el evento</h4>
+                @Html.DropDownListFor(Item => item.Id, (IEnumerable<SelectListItem>)ViewBag.BitacorasLista, new { @class = "form-control" })
+                <br />
+            </div>
+
             @Html.ValidationMessageFor(model => item.Id, "", new { @class = "text-danger" })
             <input type="submit" value="Buscar" class="BotonAzul" />
 
@@ -30,7 +30,7 @@
     <br />
     <table class="table table-bordered table-hover ">
 
-        <tr >
+        <tr>
 
             <th style="color:white">
                 @Html.DisplayNameFor(model => model.usuario.nombreUsuario)
@@ -76,7 +76,7 @@
     </table>
     <div>
 
-        <input type="button" class="BotonAzul " style="float:left" value="Buscar por evento" onclick="location.href='@Url.Action("Evento", "Bitacora")'" />
+        <input type="button" class="BotonAzul " style="float:left" value="Buscar por usuario" onclick="location.href='@Url.Action("Usuario", "Bitacora")'" />
 
         <input type="button" class="BotonAzul " style="float:right" value="Volver" onclick="location.href='@Url.Action("Index", "Bitacora")'" />
 

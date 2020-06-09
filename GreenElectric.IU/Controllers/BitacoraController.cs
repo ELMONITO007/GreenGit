@@ -53,7 +53,32 @@ namespace GreenElectric.IU.Controllers
 
             return View(bitacoras.bitacoras);
         }
+        public ActionResult Evento()
+        {
+            BitacoraBE bitacoraBE = new BitacoraBE();
+            Bitacora bitacoras = new Bitacora();
 
+            UsuarioBe usuarioBe = new UsuarioBe();
+            EventoBitacoraBE eventoBitacoraBE = new EventoBitacoraBE();
+
+
+            bitacoras.bitacoras = bitacoraBE.Read();
+     
+            bitacoras.eventoBitacoras = eventoBitacoraBE.Read();
+            bitacoras.eventoBitacoras.Select(y =>
+                                new
+                                {
+                                    Id = y.Id,
+                                    eventoBitacora = y.eventoBitacora
+                                });
+
+            ViewBag.BitacorasLista = new SelectList(bitacoras.eventoBitacoras, "Id", "eventoBitacora");
+
+
+
+
+            return View(bitacoras.bitacoras);
+        }
         // GET: Bitacora/Details/5
         public ActionResult Details(int id)
         {
