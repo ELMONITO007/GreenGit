@@ -22,12 +22,12 @@ namespace GreenElectric.EE.Servicios.Permisos
             {
 
 
-                foreach (Composite item in compuesto)
+                foreach (Familia item in compuesto)
                 {
 
 
 
-                    resultado = resultado + string.Concat(Enumerable.Repeat("-", depth)) + item.Mostrar(depth + 1) + Environment.NewLine;
+                    resultado = resultado + string.Concat(Enumerable.Repeat("-", depth)) + item.Mostrar(depth + 1) + item.nombre+Environment.NewLine;
 
 
                 }
@@ -40,7 +40,7 @@ namespace GreenElectric.EE.Servicios.Permisos
 
             return resultado;
         }
-        public List<string> lista = new List<string>();
+        public string lista;
         String resultado;
         public override string Display(int depth)
 

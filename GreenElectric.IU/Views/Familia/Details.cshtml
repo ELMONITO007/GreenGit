@@ -1,0 +1,42 @@
+﻿
+    <link href="~/Content/modern-business.css" rel="stylesheet" />
+
+   
+    <div style="color:white; font-size:20px">
+        <br /><br /><br />
+        <h1 style="color:white">Permisos que contiene Administracion</h1>
+
+
+        <ul id="myUL">
+            <li>
+                <span class="box">Administracion</span>
+                <ul class="nested">
+                    <li>Ventas</li>
+                    <li>Compras</li>
+                    <li>
+                        <span class="box">Supervisor auditoria</span>
+                        <ul class="nested">
+                            <li>Turnos</li>
+                            <li>Informes Auditoria</li>
+                            <li>
+                                <span class="box">Tecnico</span>
+                                <ul class="nested">
+                                    <li>Turnos</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+       
+        
+    </div>
+    <div>
+        <p>
+            <br />
+            <br />
+            <br />
+            <input type="button" class="BotonAzul " style="float:left" value="Agregar Permiso" onclick="location.href='@Url.Action("CrearRolePermiso", "Familia")'" />
+        </p>
+    </div>

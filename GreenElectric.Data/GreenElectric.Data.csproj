@@ -78,6 +78,7 @@
     <Compile Include="Servicios\Login\UsuarioDAC.cs" />
     <Compile Include="Servicios\Permisos\FamiliaDac.cs" />
     <Compile Include="Servicios\Permisos\PatenteDAC.cs" />
+    <Compile Include="Servicios\Permisos\UsuarioPermisoDAC.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

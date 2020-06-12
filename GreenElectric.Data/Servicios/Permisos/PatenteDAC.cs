@@ -16,7 +16,7 @@ namespace GreenElectric.Data.Servicios.Permisos
         {
 
             Patente patente = new Patente();
-            patente.Id = GetDataValue<int>(dr, "ID_CompositeFamilia");
+            patente.Id = GetDataValue<int>(dr, "ID_CompositePatente");
             patente.nombre = GetDataValue<string>(dr, "Nombre");
             patente.descripcion = GetDataValue<string>(dr, "descripcion");
 
@@ -35,7 +35,7 @@ namespace GreenElectric.Data.Servicios.Permisos
                 entity.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
 
             }
-            CreatePatente(entity);
+          
            
             return entity;
         }
@@ -74,7 +74,7 @@ namespace GreenElectric.Data.Servicios.Permisos
 
         public List<Patente> Read()
         {
-            const string SQL_STATEMENT = "select distinct Nombre from Composite as c join CompositeFamilia as cf on c.ID_Composite =cf.ID_CompositePatente  where cf.ID_CompositeFamilia is null and Activo=1";
+            const string SQL_STATEMENT = "select distinct Nombre,Descripcion,ID_CompositePatente from Composite as c join CompositeFamilia as cf on c.ID_Composite =cf.ID_CompositePatente  where cf.ID_CompositeFamilia is null and Activo=1";
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
 
             List<Patente> result = new List<Patente>();
@@ -95,12 +95,31 @@ namespace GreenElectric.Data.Servicios.Permisos
 
         public Patente ReadBy(int id)
         {
-            const string SQL_STATEMENT = "select top 1 distinct  Nombre from Composite as c join CompositeFamilia as cf on c.ID_Composite =cf.ID_CompositePatente  where cf.ID_CompositeFamilia is null and Activo= and ID_CompositeFamilia=@Id order by ID_CompositePatente desc";
+            const string SQL_STATEMENT = "select top 1  Nombre,Descripcion,ID_CompositePatente from Composite as c join CompositeFamilia as cf on c.ID_Composite =cf.ID_CompositePatente  where cf.ID_CompositeFamilia is null and Activo=1 and ID_CompositePatente=@id ";
             Patente patente = new Patente();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@Id", DbType.Int32, id);
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    if (dr.Read())
+                    {
+                        patente = LoadCategoria(dr);
+                    }
+                }
+
+            }
+            return patente;
+        }
+        public Patente ReadBy(Patente unaPatente)
+        {
+            const string SQL_STATEMENT = "select  Nombre,Descripcion,ID_CompositePatente from Composite as c join CompositeFamilia as cf on c.ID_Composite =cf.ID_CompositePatente  where cf.ID_CompositeFamilia is null and Activo=1 and Nombre=@Nombre";
+            Patente patente = new Patente();
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Nombre", DbType.String, unaPatente.nombre);
                 using (IDataReader dr = db.ExecuteReader(cmd))
                 {
                     if (dr.Read())

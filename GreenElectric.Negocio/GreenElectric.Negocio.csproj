@@ -48,6 +48,7 @@
     <Compile Include="Login\UsuarioBe.cs" />
     <Compile Include="Permisos\FamiliaBE.cs" />
     <Compile Include="Permisos\PatenteBE.cs" />
+    <Compile Include="Permisos\UsuarioPatenteBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

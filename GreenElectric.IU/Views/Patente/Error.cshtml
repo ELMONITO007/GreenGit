@@ -1,0 +1,35 @@
+﻿@model GreenElectric.EE.Servicios.Permisos.Patente
+
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <h4 style="color:white"> Error al actualizar la Patente <i>" @Html.DisplayNameFor(model => model.nombre)", este ya existe</i> </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+    </dl>
+    <div>
+        <input type="button" class="BotonAzul " style="float:left" value="Volver" onclick="location.href='@Url.Action("Index", "Backup")'" />
+
+    </div>
+</div>
+

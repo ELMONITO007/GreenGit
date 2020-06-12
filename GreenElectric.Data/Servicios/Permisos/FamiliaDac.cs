@@ -96,7 +96,7 @@ namespace GreenElectric.Data.Servicios.Permisos
 
         public Familia ReadBy(int id)
         {
-            const string SQL_STATEMENT = "select top 1 distinct Nombre,ID_CompositeFamilia,Descripcion from Composite as c join CompositeFamilia as cf on c.ID_Composite = cf.ID_CompositeFamilia where Activo = 1 and ID_CompositeFamilia=@Id order by ID_CompositeFamilia desc";
+            const string SQL_STATEMENT = "select top 1 Nombre,ID_CompositeFamilia,Descripcion from Composite as c join CompositeFamilia as cf on c.ID_Composite = cf.ID_CompositeFamilia where Activo = 1 and ID_CompositeFamilia=@Id order by ID_CompositeFamilia desc";
             Familia familia = new Familia();
             var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
@@ -152,5 +152,42 @@ namespace GreenElectric.Data.Servicios.Permisos
             }
             return result;
         }
+
+
+        #region Composite
+        public Familia LoadCategoriaNombre(IDataReader dr)
+        {
+            Familia familia = new Familia();
+            familia.Id = GetDataValue<int>(dr, "Id_Composite");
+            familia.nombre = GetDataValue<string>(dr, "Nombre");
+
+            return familia;
+        }
+
+        public List<Familia> ObtenerPermisosDeUnaFamilia(int id)
+        {
+            const string SQL_STATEMENT = "select Nombre,ID_Composite from Composite as c join CompositeFamilia as cf on c.ID_Composite=cf.ID_CompositePatente where ID_CompositeFamilia=(select distinct ID_Composite from Composite as c join CompositeFamilia as cf on c.ID_Composite=cf.ID_CompositeFamilia where ID_Composite=@id)";
+            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+
+            List<Familia> result = new List<Familia>();
+
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@Id", DbType.Int32, id);
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    while (dr.Read())
+                    {
+                        Familia backup = LoadCategoriaNombre(dr);
+                        result.Add(backup);
+                    }
+                }
+            }
+
+            return result;
+
+        }
+
+        #endregion
     }
 }

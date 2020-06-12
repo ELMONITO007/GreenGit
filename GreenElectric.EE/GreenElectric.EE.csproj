@@ -58,6 +58,7 @@
     <Compile Include="Servicios\Permisos\Composite.cs" />
     <Compile Include="Servicios\Permisos\Familia.cs" />
     <Compile Include="Servicios\Permisos\Patente.cs" />
+    <Compile Include="Servicios\Permisos\UsuarioPermiso.cs" />
     <Compile Include="TipoDomicilio.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -125,7 +125,9 @@
     <Compile Include="Controllers\BackupController.cs" />
     <Compile Include="Controllers\BitacoraController.cs" />
     <Compile Include="Controllers\EventoBitacoraController.cs" />
+    <Compile Include="Controllers\FamiliaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PatenteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1960,6 +1962,12 @@
     <Content Include="Views\Bitacora\Index.cshtml" />
     <Content Include="Views\Bitacora\Usuario.cshtml" />
     <Content Include="Views\Bitacora\Evento.cshtml" />
+    <Content Include="Views\Patente\Index.cshtml" />
+    <Content Include="Views\Patente\Create.cshtml" />
+    <Content Include="Views\Patente\Error.cshtml" />
+    <Content Include="Views\Familia\Details.cshtml" />
+    <Content Include="Views\Familia\Index.cshtml" />
+    <Content Include="Views\Familia\AgregarFamilia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

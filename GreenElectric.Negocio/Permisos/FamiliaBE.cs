@@ -45,5 +45,38 @@ namespace GreenElectric.Negocio.Permisos
             FamiliaDac familiaDac = new FamiliaDac();
             return familiaDac.ReadPatente(id);
         }
+        #region Composite
+        //Obtener la lista de permisos y roles de una Familia
+
+        public List<Familia> ObtenerPermisosDeUnaFamilia(int id)
+        {
+            FamiliaDac familiaDac = new FamiliaDac();
+            return familiaDac.ObtenerPermisosDeUnaFamilia(id);
+        }
+
+        
+        public void ObtenerTodosLosPermisos(Familia familia)
+        {
+         
+            foreach (Familia item in ObtenerPermisosDeUnaFamilia(familia.Id))
+            {
+               
+                
+                
+               
+                familia.agregarFamilia(item);
+
+                ObtenerTodosLosPermisos(item);
+            }
+
+
+          
+        }
+
+
+
+
+       
+        #endregion
     }
 }

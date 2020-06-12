@@ -6,6 +6,7 @@ namespace GreenElectric.EE.Servicios.Permisos
 {
     public class Patente : Composite
     {
+
         public override string Display(int depth)
         {
             return nombre;
