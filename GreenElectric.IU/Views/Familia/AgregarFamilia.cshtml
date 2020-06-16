@@ -7,7 +7,7 @@
 
 <link href="~/Content/modern-business.css" rel="stylesheet" />
 <div>
-    <h1 style="color:white">Agregar Permisos o Roles para Administración</h1>
+    <h1 style="color:white">Cambiar el idioma del Sistema</h1>
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -15,19 +15,19 @@
     <form action="/action_page.php">
             
         <h2 style="color:white">
-            <label for="cars">Seleccione un rol</label>
+            <label for="cars">Seleccione un Idioma</label>
         </h2>
             <select id="cars" name="cars" class="form-control">
-                <option value="volvo"> </option>
-                <option value="saab">Auditor</option>
-                <option value="fiat">Tecnico</option>
-                <option value="audi">Audi</option>
+                <option value="volvo"> Italiano</option>
+                <option value="saab">Ingles</option>
+                <option value="fiat">Español</option>
+                <option value="audi">Portuges</option>
             </select>
             <br />
-            <input type="submit" value="Agregar" class="BotonAzul" />
+            <input type="submit" value="Cambiar" class="BotonAzul" />
 </form>
 
-    <form action="/action_page.php">
+    @*<form action="/action_page.php">
         <h2 style="color:white"> <label for="cars"> Seleccione un Permiso</label></h2>
         <select id="cars" name="cars" class="form-control">
             <option value="volvo"> </option>
@@ -37,7 +37,7 @@
         </select>
         <br />
         <input type="submit" value="Agregar" class="BotonAzul" />
-    </form>
+    </form>*@
 
 
 

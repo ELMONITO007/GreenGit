@@ -10,14 +10,14 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="table-responsive">
-        <h4 style="color:white">Crear un nuevo Permiso</h4>
+    <div >
+        <h4 style="color:white">Login</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             
-            <div class="col-md-10">
-                <h5 class="text-justify"style="color:white">Permiso</h5>
+            <div >
+                <h5 class="text-justify"style="color:white">Usuario</h5>
                 @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
             </div>
@@ -26,17 +26,17 @@
         <div class="form-group">
             
             
-            <div class="col-md-10">
-                <h5 class="text-justify"style="color:white">Descripción</h5>
+            <div >
+                <h5 class="text-justify"style="color:white">Contraseña</h5>
                 @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <h6 style="color:darkred">Usuario y/o Contraseña Incorrecta </h6>
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="button" class="BotonAzul " style="float:right" value="Volver" onclick="location.href='@Url.Action("Index", "Patente")'" />
-                <input type="submit" value="Crear" class="BotonAzul" />
+            <div class="col-md-offset-2" >
+                <input type="button" class="BotonAzul " style="float:right" value="Login" onclick="location.href='@Url.Action("Index", "Patente")'" />
+       
             </div>
         </div>
     </div>
